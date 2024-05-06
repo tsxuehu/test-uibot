@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="674,1575" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="882,1580" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -29,6 +29,7 @@
       <x:String>UiPath.UIAutomationCore.Contracts</x:String>
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -61,7 +62,6 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
-      <AssemblyReference>BlankProcess1.Core</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
@@ -71,15 +71,33 @@
       <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
       <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>BlankProcess1.Core</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="684,1390" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="684,1515" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="For Each Child" sap:VirtualizedContainerService.HintSize="622,973" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="622,177" sap2010:WorkflowViewState.IdRef="LogMessage_1">
+      <ui:LogMessage.Message>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">11111</CSharpValue>
+        </InArgument>
+      </ui:LogMessage.Message>
+    </ui:LogMessage>
+    <Sequence DisplayName="For Each Child" sap:VirtualizedContainerService.HintSize="622,984" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <Sequence.Variables>
         <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="iEnumerableFindChildren" />
       </Sequence.Variables>
@@ -88,7 +106,7 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:FindChildren ContinueOnError="{x:Null}" DisplayName="Find children of" Filter="{x:Null}" sap:VirtualizedContainerService.HintSize="560,87" sap2010:WorkflowViewState.IdRef="FindChildren_3">
+      <ui:FindChildren Filter="{x:Null}" DisplayName="Find children of" sap:VirtualizedContainerService.HintSize="546,119" sap2010:WorkflowViewState.IdRef="FindChildren_3">
         <ui:FindChildren.Children>
           <OutArgument x:TypeArguments="scg:IEnumerable(ui:UiElement)">
             <CSharpReference x:TypeArguments="scg:IEnumerable(ui:UiElement)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">
@@ -127,25 +145,25 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:FindChildren>
-      <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For each child" sap:VirtualizedContainerService.HintSize="560,735" sap2010:WorkflowViewState.IdRef="ForEach`1_2" MaxIterations="{x:Null}">
+      <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For each child" sap:VirtualizedContainerService.HintSize="546,745" sap2010:WorkflowViewState.IdRef="ForEach`1_2">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="ui:UiElement">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="ui:UiElement" Name="child" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,545" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,554" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ElementScope ContinueOnError="{x:Null}" DisplayName="Element scope" sap:VirtualizedContainerService.HintSize="484,457" sap2010:WorkflowViewState.IdRef="ElementScope_2" UiElement="{x:Null}">
+              <ui:ElementScope UiElement="{x:Null}" DisplayName="Element scope" sap:VirtualizedContainerService.HintSize="450,469" sap2010:WorkflowViewState.IdRef="ElementScope_2">
                 <ui:ElementScope.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,330" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,319" sap2010:WorkflowViewState.IdRef="Sequence_5">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="ui:GenericValue" Name="stringChildValue" />
                       </Sequence.Variables>
@@ -154,7 +172,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get value" sap:VirtualizedContainerService.HintSize="388,87" sap2010:WorkflowViewState.IdRef="GetValue_2">
+                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get value" sap:VirtualizedContainerService.HintSize="354,119" sap2010:WorkflowViewState.IdRef="GetValue_2">
                         <ui:GetValue.Target>
                           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="7139f4cb-2023-4a3c-9f75-f45dabb34f46">
                             <ui:Target.TimeoutMS>
@@ -179,7 +197,7 @@
                           </OutArgument>
                         </ui:GetValue.Value>
                       </ui:GetValue>
-                      <WriteLine DisplayName="Write line" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="WriteLine_2" TextWriter="{x:Null}">
+                      <WriteLine DisplayName="Write line" sap:VirtualizedContainerService.HintSize="354,115" sap2010:WorkflowViewState.IdRef="WriteLine_2">
                         <InArgument x:TypeArguments="x:String">
                           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">
                             <CSharpValue.Result>
